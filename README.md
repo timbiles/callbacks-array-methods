@@ -33,17 +33,15 @@ arr.alternateMap();
 
     ```js
     Array.prototype.alternateIncludes = function(item) {
-        let flag = false;
-
         for (let i = 0; i < this.length; i++) {
-            if (this[i] === item) flag = true;
+            if (this[i] === item) return true;
         }
 
-        return flag;
+        return false;
     }
     ```
     </details>
-    
+
 * IndexOf
     * This method should accept one argument: an item to search the target array for
     * If the item is in the array, return the index of that item
