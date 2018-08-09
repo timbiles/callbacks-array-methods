@@ -1,0 +1,17 @@
+{
+  "name": "callbacks-array-methods",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/steven-isbell/callbacks-array-methods.git",
+  "author": "Steven Isbell <steveni_92@msn.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "jest": "^23.4.2"
+  }
+}

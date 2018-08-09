@@ -26,8 +26,8 @@ arr.alternateMap();
 
 * Includes
     * This method should accept one argument: an item to search the target array for
-    * If the item is in the array, return true
-    * If the item is not in the array, return false
+    * It should return true if the item is in the target array
+    * It should return false if the item is not in the target array
     <details>
     <summary> <code> Includes </code> </summary>
 
@@ -44,8 +44,8 @@ arr.alternateMap();
 
 * IndexOf
     * This method should accept one argument: an item to search the target array for
-    * If the item is in the array, return the index of that item
-    * If the item is not in the array, return -1
+    * It should return the index of the item if the item is in the target array
+    * It should return -1 if the item is not in the target array
     <details>
     <summary> <code> IndexOf </code> </summary>
 
