@@ -44,3 +44,17 @@ arr.alternateMap();
     * It should create a new array
     * It should add the result of executing the callback for each item in the target array into the new array.
     * It should return the new array
+
+* Filter
+    * This method should accept one argument: a callback function
+    * It should create a new array
+    * It should execute the callback for each item in the target array
+    * It should add the item to the new array if the result of the callback is true
+    * It should return the new array
+
+* Reduce
+    * This method should accept two arguments: a callback function and an optional accumulator
+    * It should initialize the accumulator as zero if no accumulator is provided
+    * It should execute the callback for each item in the target array
+    * It should set the accumulator to the result of the callback
+    * It should return the accumulator
