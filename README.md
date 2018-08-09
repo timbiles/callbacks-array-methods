@@ -9,7 +9,7 @@ We'll achieve this by `extending` the prototype. This means that we'll add our o
 Array.prototype.alternateMap = function() {}
 ```
 
-In the function definition of the prototype method we can use the keyword `this` to reference the targeted array.
+In the function definition of the prototype method we can use the keyword `this` to reference the targeted array. We will avoid the es6 arrow syntax when using the keyword `this` to ensure that `this` maintains the correct reference to the correct value. The arrow changes `this'` value. We'll cover `this` more in-depth later.
 
 ```js
 Array.prototype.alternateMap = function() {
