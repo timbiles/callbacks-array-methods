@@ -24,6 +24,13 @@ arr.alternateMap();
 
 # Instructions
 
+### Setup
+
+* Fork and clone this repository
+* cd into the project directory
+* run `npm install` or `yarn`
+* Implement each method. Once you're done, run `yarn test` to make sure everything works.
+
 * Includes
     * This method should accept one argument: an item to search the target array for
     * It should return true if the item is in the target array
