@@ -3,7 +3,7 @@
 # Summary
 This project will allow you to explore callbacks as you implement your own version of JavaScripts Array prototype methods: includes, indexOf, map, filter, forEach, and reduce.
 
-We'll achieve this by `extending` the prototype. This means that we'll add our own function to the `Array Contstructor's` prototype. We'll call our methods `alternateRealMethodName` eg. `alternateMap` or `alternateForEach` so as not to override or redefine the exisiting prototype methods.
+We'll achieve this by `extending` the prototype. This means that we'll add our own function to the `Array Contstructor's` prototype. The prototype is an object that all `children` of a Constructor share. That's how, for instance, all arrays have access to `.map` without us needing to define what that is in our code. We'll go more in depth into Consturctors, Classes, and prototypes later. For now, we'll call our methods `alternateRealMethodName` eg. `alternateMap` or `alternateForEach` so as not to override or redefine the exisiting prototype methods.
 
 ```js
 Array.prototype.alternateMap = function() {}
@@ -82,7 +82,7 @@ arr.alternateMap();
 * Map
     * This method should accept one argument: a callback function
     * It should create a new array
-    * It should add the result of executing the callback for each item in the target array into the new array.
+    * It should add the result of executing the callback for each item in the target array into the new array
     * The callback should receive three arguments: the current value, index, and target array
     * It should return the new array
     <details>
@@ -105,21 +105,22 @@ arr.alternateMap();
     * This method should accept one argument: a callback function
     * It should create a new array
     * It should execute the callback for each item in the target array
+    * The callback should receive three arguments: the current value, index, and target array
     * It should add the item to the new array if the result of the callback is true
     * It should return the new array
     <details>
     <summary> <code> Filter </code> </summary>
 
     ```js
-        Array.prototype.alternateFilter = function(cb) {
-            const arr = [];
+    Array.prototype.alternateFilter = function(cb) {
+        const arr = [];
 
-            for (let i = 0; i < this.length; i++) {
-                if (cb(this[i], i, this)) arr.push(this[i])
-            }
-
-            return arr;
+        for (let i = 0; i < this.length; i++) {
+            if (cb(this[i], i, this)) arr.push(this[i])
         }
+
+        return arr;
+    }
     ```
     </details>
 
