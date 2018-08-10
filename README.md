@@ -3,23 +3,13 @@
 # Summary
 This project will allow you to explore callbacks as you implement your own version of JavaScripts Array prototype methods: includes, indexOf, map, filter, forEach, and reduce.
 
-We'll achieve this by `extending` the prototype. This means that we'll add our own function to the `Array Contstructor's` prototype. The prototype is an object that all `children` of a Constructor share. That's how, for instance, all arrays have access to `.map` without us needing to define what that is in our code. We'll go more in depth into Consturctors, Classes, and prototypes later. For now, we'll call our methods `alternateRealMethodName` eg. `alternateMap` or `alternateForEach` so as not to override or redefine the exisiting prototype methods.
+We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function.
 
 ```js
-Array.prototype.alternateMap = function() {}
-```
-
-In the function definition of the prototype method we can use the keyword `this` to reference the targeted array. We will avoid the es6 arrow syntax when using the keyword `this` to ensure that `this` maintains the correct reference to the correct value. The arrow changes `this'` value. We'll cover `this` more in-depth later.
-
-```js
-Array.prototype.alternateMap = function() {
-    console.log(this);
-    // [1, 2, 3]
-}
-
-const arr = [1, 2, 3];
-
-arr.alternateMap();
+// indexOf will receive an array and an item to search for
+const indexOf = (arr, item) => {}
+// forEach will receive an array and a callback to execute for each item in the array.
+const forEach = (arr, cb) => {}
 ```
 
 # Instructions
@@ -32,16 +22,16 @@ arr.alternateMap();
 * Implement each method. Once you're done, run `yarn test` to make sure everything works.
 --------------
 * Includes
-    * This method should accept one argument: an item to search the target array for
+    * This method should accept two arguments: an array and an item to search the target array for
     * It should return true if the item is in the target array
     * It should return false if the item is not in the target array
     <details>
     <summary> <code> Includes </code> </summary>
 
     ```js
-    Array.prototype.alternateIncludes = function(item) {
-        for (let i = 0; i < this.length; i++) {
-            if (this[i] === item) return true;
+    const includes = (arr, item) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === item) return true;
         }
 
         return false;
@@ -50,16 +40,16 @@ arr.alternateMap();
     </details>
 
 * IndexOf
-    * This method should accept one argument: an item to search the target array for
+    * This method should accept two arguments: an array and an item to search the target array for
     * It should return the index of the item if the item is in the target array
     * It should return -1 if the item is not in the target array
     <details>
     <summary> <code> IndexOf </code> </summary>
 
     ```js
-    Array.prototype.alternateIndexOf = function(item) {
-        for (let i = 0; i < this.length; i++) {
-            if (this[i] === item) return i;
+    const indexOf = (arr, item) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === item) return i;
         }
 
         return -1;
@@ -68,7 +58,7 @@ arr.alternateMap();
     </details>
 
 * ForEach
-    * This method should accept one argument: a callback function
+    * This method should accept two arguments: an array and a callback function
     * It should execute the callback for each item in the target array
     * The callback should receive three arguments: the current value, index, and target array
     * It should return the target array
@@ -76,18 +66,18 @@ arr.alternateMap();
     <summary> <code> ForEach </code> </summary>
 
     ```js
-    Array.prototype.alternateForEach = function(cb) {
-        for (let i = 0; i < this.length; i++) {
-            this[i] = cb(this[i], i, this);
+    const forEach = (arr, cb) => {
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = cb(arr[i], i, arr);
         }
 
-        return this;
+        return arr;
     }
     ```
     </details>
 
 * Map
-    * This method should accept one argument: a callback function
+    * This method should accept two arguments: an array and a callback function
     * It should create a new array
     * It should add the result of executing the callback for each item in the target array into the new array
     * The callback should receive three arguments: the current value, index, and target array
@@ -96,20 +86,20 @@ arr.alternateMap();
     <summary> <code> Map </code> </summary>
 
     ```js
-    Array.prototype.alternateMap = function(cb) {
-        const arr = [];
+    const map = (arr, cb) => {
+        const mappedArr = [];
 
-        for (let i = 0; i < this.length; i++) {
-            arr.push(cb(this[i], i, this));
+        for (let i = 0; i < arr.length; i++) {
+            mappedArr.push(cb(arr[i], i, arr));
         }
 
-        return arr;
+        return mappedArr;
     }
     ```
     </details>
 
 * Filter
-    * This method should accept one argument: a callback function
+    * This method should accept two arguments: an array and a callback function
     * It should create a new array
     * It should execute the callback for each item in the target array
     * The callback should receive three arguments: the current value, index, and target array
@@ -119,20 +109,20 @@ arr.alternateMap();
     <summary> <code> Filter </code> </summary>
 
     ```js
-    Array.prototype.alternateFilter = function(cb) {
-        const arr = [];
+    const filter = (arr, cb) => {
+        const filteredArr = [];
 
-        for (let i = 0; i < this.length; i++) {
-            if (cb(this[i], i, this)) arr.push(this[i])
+        for (let i = 0; i < arr.length; i++) {
+            if (cb(arr[i], i, arr)) filteredArr.push(arr[i])
         }
 
-        return arr;
+        return filteredArr;
     }
     ```
     </details>
 
 * Reduce
-    * This method should accept two arguments: a callback function and an optional accumulator
+    * This method should accept three arguments: an array, a callback function and an optional accumulator
     * It should initialize the accumulator as zero if no accumulator is provided
     * It should execute the callback for each item in the target array
     * The callback should receive four arguments: the accumulator, current value, index, and target array
@@ -142,9 +132,9 @@ arr.alternateMap();
     <summary> <code> Reduce </code> </summary>
 
     ```js
-    Array.prototype.alternateReduce = function(cb, acc = 0) {
-        for (let i = 0; i < this.length; i++) {
-            acc = cb(acc, this[i], i, this)
+    const reduce = (arr, cb, acc = 0) => {
+        for (let i = 0; i < arr.length; i++) {
+            acc = cb(acc, arr[i], i, arr)
         }
 
         return acc;
