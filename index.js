@@ -1,5 +1,5 @@
-// Please ensure your methods match the names below
-// eg. Array.prototype.alternateIncludes
+// Please ensure your methods match the name below
+// eg. const includes = () => || function includes() {}
 
 /* includes */
 
@@ -14,10 +14,10 @@
 /* reduce */
 
 module.exports = {
-  alternateIncludes: Array.prototype.alternateIncludes,
-  alternateIndexOf: Array.prototype.alternateIndexOf,
-  alternateForEach: Array.prototype.alternateForEach,
-  alternateMap: Array.prototype.alternateMap,
-  alternateFilter: Array.prototype.alternateFilter,
-  alternateReduce: Array.prototype.alternateReduce
+  includes,
+  indexOf,
+  forEach,
+  map,
+  filter,
+  reduce
 };
