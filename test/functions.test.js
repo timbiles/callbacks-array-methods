@@ -39,7 +39,7 @@ describe('forEach', () => {
     expect(mock.mock.calls[0][2]).toBe(arr);
   });
   test('It should execute the callback for each item in the target array', () => {
-    expect(mock.mock.calls.length).toBe(length);
+    expect(mock.mock.calls.length).toBe(arr.length);
   });
   test('It should return the target array', () => {
     expect(forEach(arr, mock)).toBe(arr);
@@ -59,10 +59,10 @@ describe('map', () => {
     expect(mock.mock.calls[0][2]).toBe(arr);
   });
   test('It should execute the callback for each item in the target array', () => {
-    expect(mock.mock.calls.length).toBe(length);
+    expect(mock.mock.calls.length).toBe(arr.length);
   });
   test('It should return the new array', () => {
-    expect(map(arr, mock)).toHaveLength(length);
+    expect(map(arr, mock)).toHaveLength(arr.length);
     expect(map(arr, mock)).toBeInstanceOf(Array);
   });
 });
@@ -80,7 +80,7 @@ describe('filter', () => {
     expect(mock.mock.calls[0][2]).toBe(arr);
   });
   test('It should execute the callback for each item in the target array', () => {
-    expect(mock.mock.calls.length).toBe(length);
+    expect(mock.mock.calls.length).toBe(arr.length);
   });
   test('It should return the new array', () => {
     expect(filter(arr, mock)).toBeInstanceOf(Array);
@@ -101,7 +101,7 @@ describe('reduce', () => {
     expect(mock.mock.calls[0][3]).toBe(arr);
   });
   test('It should execute the callback for each item in the target array', () => {
-    expect(mock.mock.calls.length).toBe(length);
+    expect(mock.mock.calls.length).toBe(arr.length);
   });
   test('It should return the accumulator', () => {
     expect(reduce(arr, (acc, cur) => acc + cur)).toBe(6);
