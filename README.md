@@ -3,11 +3,21 @@
 # Summary
 This project will allow you to explore callbacks as you implement your own version of JavaScripts Array prototype methods: includes, indexOf, map, filter, forEach, and reduce.
 
-We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function.
+We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function. These functions should not use their built-in counterparts. This means that when you define indexOf, it should not use .indexOf in its definition. 
 
 You can find an example below.
 
 ```js
+// findIndex will receive an array and a callback.
+// It will not use the built in .findIndex to work.
+const findIndex = (arr, cb) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (cb(arr[i])) {
+            return i
+        }
+    }
+    return -1;
+}
 // indexOf will receive an array and an item to search for
 const indexOf = (arr, item) => {}
 // forEach will receive an array and a callback to execute for each item in the array.
@@ -21,7 +31,8 @@ const forEach = (arr, cb) => {}
 * Fork and clone this repository
 * cd into the project directory
 * run `npm install` or `yarn`
-* Implement each method. Once you're done, run `yarn test` to make sure everything works.
+* Implement each method.
+* Once you're done, run `yarn test` to make sure everything works.
 --------------
 * Includes
     * This method should accept two arguments: an array and an item to search the target array for
