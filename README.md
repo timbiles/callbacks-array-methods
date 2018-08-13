@@ -5,6 +5,8 @@ This project will allow you to explore callbacks as you implement your own versi
 
 We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function.
 
+You can find an example below.
+
 ```js
 // indexOf will receive an array and an item to search for
 const indexOf = (arr, item) => {}
