@@ -3,7 +3,7 @@
 # Summary
 This project will allow you to explore callbacks as you implement your own version of JavaScripts Array prototype methods: includes, indexOf, map, filter, forEach, and reduce.
 
-We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function. These functions should not use their built-in counterparts. This means that when you define indexOf, it should not use .indexOf in its definition. 
+We'll achieve this by writing functions that will receive two arguments, an arrary to operate on, and either an item to search for, in the case of includes and indexOf, or a callback function. These functions should not use their built-in counterparts. This means that when you define indexOf, it should not use .indexOf in its definition.
 
 You can find an example below.
 
